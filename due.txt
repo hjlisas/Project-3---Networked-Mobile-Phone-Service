@@ -1,0 +1,21 @@
+// --------- TEST CASE 6.1 -------------
+// CONDITION>> Balance inquiry on an activated non-postpaid SIM card
+
+subscribe 55555555555 Flap Jack prepaid
+due 55555555555
+
+// --------- TEST CASE 6.2 -------------
+// CONDITION>> Balance inquiry on an inactivated postpaid SIM card
+
+due 00000000000
+
+// --------- TEST CASE 6.3 -------------
+// CONDITION>> Balance inquiry on an activated non-postpaid SIM card
+
+due 55555555555
+
+// --------- TEST CASE 6.4 -------------
+// CONDITION>> Balance inquiry on an all activated postpaid SIM card
+
+subscribe 77770009999 Eat Bulaga postpaid
+due 77770009999 

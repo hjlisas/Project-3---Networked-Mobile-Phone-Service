@@ -1,0 +1,29 @@
+// --------- TEST CASE 3.1 -------------
+// CONDITION>> Send an SMS from an inactivated SIM card
+
+text 05014324490
+
+// --------- TEST CASE 3.2 -------------
+// CONDITION>> Send an SMS from an active SIM card 
+//             with sufficient balance and valid credit limit
+
+subscribe 05555555555 Jane Bond postpaid
+subscribe 08887770000 James Bond prepaid
+load 08887770000 500
+text 08887770000 
+text 05555555555
+
+// --------- TEST CASE 3.3  -------------
+// CONDITION>> Send an SMS from an active SIM card with 
+//             insufficient balance (prepaid)
+
+call 08887770000 00000000000 500 10
+text 08887770000 
+
+
+// --------- TEST CASE 3.4 -------------
+// CONDITION>> Send an SMS from an active SIM card with 
+//             an exhausted credit limit (postpaid)
+
+call 05555555555 00000000000 1500 11
+text 05555555555 

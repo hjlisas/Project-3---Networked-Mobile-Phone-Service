@@ -1,0 +1,16 @@
+// --------- TEST CASE 4.1 -------------
+// CONDITION>> Load to an activated prepaid SIM card
+
+subscribe 12120001111 Juan DelaCruise prepaid
+load 12120001111 500.00 
+
+// --------- TEST CASE 4.2 -------------
+// CONDITION>> Load to an inactivated prepaid SIM card
+
+load 11111111111 1200.00
+
+// --------- TEST CASE 4.3  -------------
+// CONDITION>> Load to an activated non-prepaid SIM card
+
+subscribe 20200002222 Juan Tamad postpaid
+load 20200002222 

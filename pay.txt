@@ -1,0 +1,18 @@
+// --------- TEST CASE 7.1 -------------
+// CONDITION>> Apply payments to an activated postpaid SIM card
+
+subscribe 99991010101 Albert Einstein postpaid
+call 99991010101 00000000000 10 30
+pay 99991010101 100.00
+
+// --------- TEST CASE 7.2 -------------
+// CONDITION>> Apply payments to an inactivated postpaid SIM card
+
+pay 00000000000 100.00
+
+// --------- TEST CASE 7.3 -------------
+// CONDITION>> Apply payments to an activated non-postpaid SIM card
+
+subscribe 10001110000 James Dean prepaid
+call 10001110000 00000000000 10 31
+pay 55555555555 100

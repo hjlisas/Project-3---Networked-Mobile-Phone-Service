@@ -1,0 +1,224 @@
+// *  TEST CASE 1.1 * 
+// CONDITON>> New prepaid subscriber, activate SIM card
+
+subscribe 09215551234 Son Goku prepaid
+
+// *  TEST CASE 1.2 * 
+// CONDITON>> New postpaid subscriber, activate SIM card
+
+subscribe 09195554444 Osama Masama postpaid
+
+// *  TEST CASE 1.3 * 
+// CONDITON>> Attempt to activate an already active SIM card
+
+subscribe 09215551234 Son Goku prepaid
+subscribe 09195554444 Osama Masama postpaid
+
+// *  TEST CASE 2.1 * 
+// CONDITION>> attemp to make a call with 
+//             a non-activated SIM card
+
+call 09000000000 09172222222 5 1
+
+// *  TEST CASE 2.2 * 
+// CONDITION>> Make a call with an activated 
+//             SIM card and with sufficient balance (prepaid) 
+//             and within maximum credit limit (postpaid)
+
+subscribe 09991119898 Hubert lisas prepaid
+load 09991119898 500.00
+subscribe 08887777878 Aubrey Miles postpaid
+call 09991119898 01110001212 10 1
+call 08887777878 01110001212 15 2
+
+// *  TEST CASE 2.3  * 
+// CONDITION>> Attempt to make a call with 
+//             insufficient balance(prepaid)
+
+subscribe 19990002222 x y prepaid
+load 19990002222 6.00
+call 19990002222 12555554444 20 3
+
+// *  TEST CASE 2.4 * 
+// CONDITION>> Attempt to make a call with length of call
+//             greater than length of call allowable.
+
+load 19990002222 300.00
+call 19990002222 12555554444 1000 4
+
+// *  TEST CASE 2.5   * 
+// CONDITION>> Attempt to make a call with zero balance(prepaid)
+
+call 19990002222 08154567899 10 5
+
+// *  TEST CASE 2.6  * 
+// CONDITION>> Attempt to make a call with 
+//             maximum credit limit reached(postpaid)
+
+call 08887777878 01110001212 200 6
+call 08887777878 01110001212 15 7
+
+// *  TEST CASE 3.1 * 
+// CONDITION>> Send an SMS from an inactivated SIM card
+
+text 05014324490
+
+// *  TEST CASE 3.2 * 
+// CONDITION>> Send an SMS from an active SIM card 
+//             with sufficient balance and valid credit limit
+
+subscribe 05555555555 Jane Bond postpaid
+subscribe 08887770000 James Bond prepaid
+load 08887770000 500
+text 08887770000 
+text 05555555555
+
+// *  TEST CASE 3.3  * 
+// CONDITION>> Send an SMS from an active SIM card with 
+//             insufficient balance (prepaid)
+
+call 08887770000 00000000000 500 10
+text 08887770000 
+
+
+// *  TEST CASE 3.4 * 
+// CONDITION>> Send an SMS from an active SIM card with 
+//             an exhausted credit limit (postpaid)
+
+call 05555555555 00000000000 1500 11
+text 05555555555 
+
+// *  TEST CASE 4.1 * 
+// CONDITION>> Load to an activated prepaid SIM card
+
+subscribe 12120001111 Juan DelaCruise prepaid
+load 12120001111 500.00 
+
+// *  TEST CASE 4.2 * 
+// CONDITION>> Load to an inactivated prepaid SIM card
+
+load 11111111111 1200.00
+
+// *  TEST CASE 4.3  * 
+// CONDITION>> Load to an activated non-prepaid SIM card
+
+subscribe 20200002222 Juan Tamad postpaid
+load 20200002222 
+
+// *  TEST CASE 5.1 * 
+// CONDITION>> Balance inquiry on an activated prepaid SIM card
+
+balance 12120001111
+
+// *  TEST CASE 5.2 * 
+// CONDITION>> Balance inquiry on an inactivated prepaid SIM card
+
+balance 00000000000
+
+// *  TEST CASE 5.3 * 
+// CONDITION>> Balance inquiry on an activated non-prepaid SIM card
+
+balance 20200002222
+
+// *  TEST CASE 5.4 * 
+// CONDITION>> Balance inquiry on an all activated prepaid SIM card
+
+subscribe 22220009999 Carmen Electra prepaid
+balance 22220009999
+
+// *  TEST CASE 6.1 * 
+// CONDITION>> Balance inquiry on an activated non-postpaid SIM card
+
+subscribe 55555555555 Flap Jack prepaid
+due 55555555555
+
+// *  TEST CASE 6.2 * 
+// CONDITION>> Balance inquiry on an inactivated postpaid SIM card
+
+due 00000000000
+
+// *  TEST CASE 6.3 * 
+// CONDITION>> Balance inquiry on an activated non-postpaid SIM card
+
+due 55555555555
+
+// *  TEST CASE 6.4 * 
+// CONDITION>> Balance inquiry on an all activated postpaid SIM card
+
+subscribe 77770009999 Eat Bulaga postpaid
+due 77770009999 
+
+// *  TEST CASE 7.1 * 
+// CONDITION>> Apply payments to an activated postpaid SIM card
+
+subscribe 99991010101 Albert Einstein postpaid
+call 99991010101 00000000000 10 30
+pay 99991010101 100.00
+
+// *  TEST CASE 7.2 * 
+// CONDITION>> Apply payments to an inactivated postpaid SIM card
+
+pay 00000000000 100.00
+
+// *  TEST CASE 7.3 * 
+// CONDITION>> Apply payments to an activated non-postpaid SIM card
+
+subscribe 10001110000 James Dean prepaid
+call 10001110000 00000000000 10 31
+pay 55555555555 100
+
+// *  TEST CASE 8.1 * 
+// CONDITION>> Print call history of an activated postpaid SIM
+
+subscribe 50005551111 Agaw Agimat postpaid
+call 50005551111 00000000000 10 40
+call 50005551111 00000000000 5 41
+call 50005551111 00000000000 8 42
+call 50005551111 00000000000 12 43
+history 77770009999 
+
+// *  TEST CASE 8.2 * 
+// CONDITION>> Print call history of an inactivated SIM
+
+history 00000000000
+
+// *  TEST CASE 8.3 * 
+// CONDITION>> Print call history of an activated non-postpaid SIM
+
+subscribe 08708877722 Ben Hur prepaid
+load 08708877722 1000.00
+call 08708877722 00000000000 12 44
+call 08708877722 00000000000 10 45
+call 08708877722 00000000000 8 46
+history 55555555555
+
+// *  TEST CASE case 9.1 * 
+// CONDITON>> Refute a call made by an activated postpaid SIM
+
+subscribe 01019994343 George Bush postpaid
+call 01019994343 00000000000 5 50
+call 01019994343 00000000000 15 51
+call 01019994343 00000000000 25 52
+undo 01019994343 52
+
+// *  TEST CASE 9.2 * 
+// CONDITON>> Refute a call made by an inactivated SIM
+
+undo 00000000000 1
+
+// *  TEST CASE 9.3 * 
+// CONDITON>> Refute a call made by an activated non-postpaid SIM
+
+subscribe 20201212200 Saddam Hussein prepaid
+load 20201212200 500.00
+call 20201212200 00000000000 25 53
+undo 20201212200 53
+
+// *  TEST CASE 9.4 * 
+// CONDITON>> Refute a call after payments have been made
+
+pay 01019994343 300.00
+undo 01019994343 50
+
+
+

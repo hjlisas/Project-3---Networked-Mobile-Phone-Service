@@ -1,0 +1,44 @@
+// --------- TEST CASE 2.1 -------------
+// CONDITION>> attemp to make a call with 
+//             a non-activated SIM card
+
+call 09000000000 09172222222 5 1
+
+// --------- TEST CASE 2.2 -------------
+// CONDITION>> Make a call with an activated 
+//             SIM card and with sufficient balance (prepaid) 
+//             and within maximum credit limit (postpaid)
+
+subscribe 09991119898 Hubert lisas prepaid
+load 09991119898 500.00
+subscribe 08887777878 Aubrey Miles postpaid
+call 09991119898 01110001212 10 1
+call 08887777878 01110001212 15 2
+
+// --------- TEST CASE 2.3  -------------
+// CONDITION>> Attempt to make a call with 
+//             insufficient balance(prepaid)
+
+subscribe 19990002222 x y prepaid
+load 19990002222 6.00
+call 19990002222 12555554444 20 3
+
+// --------- TEST CASE 2.4 -------------
+// CONDITION>> Attempt to make a call with length of call
+//             greater than length of call allowable.
+
+load 19990002222 300.00
+call 19990002222 12555554444 1000 4
+
+// --------- TEST CASE 2.5   -------------
+// CONDITION>> Attempt to make a call with zero balance(prepaid)
+
+call 19990002222 08154567899 10 5
+
+// --------- TEST CASE 2.6  -------------
+// CONDITION>> Attempt to make a call with 
+//             maximum credit limit reached(postpaid)
+
+call 08887777878 01110001212 200 6
+call 08887777878 01110001212 15 7
+

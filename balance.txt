@@ -1,0 +1,20 @@
+// --------- TEST CASE 5.1 -------------
+// CONDITION>> Balance inquiry on an activated prepaid SIM card
+
+balance 12120001111
+
+// --------- TEST CASE 5.2 -------------
+// CONDITION>> Balance inquiry on an inactivated prepaid SIM card
+
+balance 00000000000
+
+// --------- TEST CASE 5.3 -------------
+// CONDITION>> Balance inquiry on an activated non-prepaid SIM card
+
+balance 20200002222
+
+// --------- TEST CASE 5.4 -------------
+// CONDITION>> Balance inquiry on an all activated prepaid SIM card
+
+subscribe 22220009999 Carmen Electra prepaid
+balance 22220009999

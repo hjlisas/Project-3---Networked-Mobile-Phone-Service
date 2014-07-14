@@ -1,0 +1,24 @@
+// --------- TEST CASE 8.1 -------------
+// CONDITION>> Print call history of an activated postpaid SIM
+
+subscribe 50005551111 Agaw Agimat postpaid
+call 50005551111 00000000000 10 40
+call 50005551111 00000000000 5 41
+call 50005551111 00000000000 8 42
+call 50005551111 00000000000 12 43
+history 77770009999 
+
+// --------- TEST CASE 8.2 -------------
+// CONDITION>> Print call history of an inactivated SIM
+
+history 00000000000
+
+// --------- TEST CASE 8.3 -------------
+// CONDITION>> Print call history of an activated non-postpaid SIM
+
+subscribe 08708877722 Ben Hur prepaid
+load 08708877722 1000.00
+call 08708877722 00000000000 12 44
+call 08708877722 00000000000 10 45
+call 08708877722 00000000000 8 46
+history 55555555555

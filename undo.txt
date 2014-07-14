@@ -1,0 +1,29 @@
+// --------- TEST CASE case 9.1 -------------
+// CONDITON>> Refute a call made by an activated postpaid SIM
+
+subscribe 01019994343 George Bush postpaid
+call 01019994343 00000000000 5 50
+call 01019994343 00000000000 15 51
+call 01019994343 00000000000 25 52
+undo 01019994343 52
+
+// --------- TEST CASE 9.2 -------------
+// CONDITON>> Refute a call made by an inactivated SIM
+
+undo 00000000000 1
+
+// --------- TEST CASE 9.3 -------------
+// CONDITON>> Refute a call made by an activated non-postpaid SIM
+
+subscribe 20201212200 Saddam Hussein prepaid
+load 20201212200 500.00
+call 20201212200 00000000000 25 53
+undo 20201212200 53
+
+// --------- TEST CASE 9.4 -------------
+// CONDITON>> Refute a call after payments have been made
+
+pay 01019994343 300.00
+undo 01019994343 50
+
+

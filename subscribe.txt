@@ -1,0 +1,15 @@
+// --------- TEST CASE 1.1 -------------
+// CONDITON>> New prepaid subscriber, activate SIM card
+
+subscribe 09215551234 Son Goku prepaid
+
+// --------- TEST CASE 1.2 -------------
+// CONDITON>> New postpaid subscriber, activate SIM card
+
+subscribe 09195554444 Osama Masama postpaid
+
+// --------- TEST CASE 1.3 -------------
+// CONDITON>> Attempt to activate an already active SIM card
+
+subscribe 09215551234 Son Goku prepaid
+subscribe 09195554444 Osama Masama postpaid

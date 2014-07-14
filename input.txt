@@ -1,0 +1,16 @@
+subscribe 09215551234 JP Vergara prepaid
+subscribe 09215551235 Marco Changho postpaid
+load 09215551234 300.00
+call 09215551234 09172222222 5 1
+text 09215551234
+call 09215551235 09171111111 10 2
+subscribe 09215551237 Luis Sarmenta postpaid
+pay 09215551234 100.00
+balance 09215551234
+balance allprepaid
+subscribe 09215551238 Jasper Globe prepaid
+due 09215551235
+call 09215551235 09171111111 10 3
+history 09215551235
+undo 09215551235 3
+due allpostpaid
